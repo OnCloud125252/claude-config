@@ -1,0 +1,10 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "go run ~/.claude/tools/statusline.go"
+  },
+  "permissions": {
+    "additionalDirectories": ["~/"]
+  },
+  "outputStyle": "Explanatory"
+}

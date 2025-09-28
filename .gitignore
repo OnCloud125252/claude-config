@@ -1,0 +1,50 @@
+# System and Runtime Files
+.DS_Store
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# Session and Tracking Data (privacy-sensitive)
+session-tracker/
+shell-snapshots/
+statsig/
+todos/
+projects/
+
+# IDE Integration (may contain workspace-specific data)
+ide/
+
+# Plugin Runtime Data
+plugins/*.json
+plugins/*/cache/
+plugins/*/data/
+
+# Compiled Binaries
+*.exe
+statusline
+tools/statusline
+
+# Personal/Private Configurations
+# Uncomment if you want to exclude your personal CLAUDE.md
+# config/CLAUDE.md
+
+# Temporary Files
+tmp/
+temp/
+.temp/
+
+# Cache Files
+.cache/
+cache/
+
+# System Configuration Backups
+*.backup
+*.bak
+settings.json.backup
+
+# Local Development
+.env
+.env.local
+*.local
