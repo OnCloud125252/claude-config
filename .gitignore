@@ -1,50 +1,120 @@
-# System and Runtime Files
-.DS_Store
-*.log
-*.tmp
-*.swp
-*.swo
-*~
+# ============================================
+# Claude Code CLI Runtime & Session Data
+# ============================================
 
-# Session and Tracking Data (privacy-sensitive)
+# Conversation history and transcripts
+history.jsonl
+*.jsonl
+
+# Session tracking (contains usage data and timestamps)
 session-tracker/
+
+# Shell environment snapshots
 shell-snapshots/
-statsig/
-todos/
+
+# Project-specific conversation history
 projects/
 
-# IDE Integration (may contain workspace-specific data)
-ide/
+# Todo list tracking (per-session)
+todos/
 
-# Plugin Runtime Data
-plugins/*.json
+# File edit history tracking
+file-history/
+
+# IDE integration (lock files, workspace data)
+ide/
+*.lock
+
+# Statsig analytics and feature flags cache
+statsig/
+
+# ============================================
+# Settings & Configuration
+# ============================================
+
+# Local settings (personal preferences, not shared)
+settings.local.json
+**/settings.local.json
+
+# Uncomment to exclude personal system-wide config
+# config/CLAUDE.md
+
+# ============================================
+# Plugins & Extensions
+# ============================================
+
+# Plugin configuration and runtime data
+plugins/config.json
+plugins/repos/
 plugins/*/cache/
 plugins/*/data/
+plugins/*/node_modules/
 
-# Compiled Binaries
+# MCP (Model Context Protocol) servers runtime
+mcp-servers/
+
+# ============================================
+# Build Artifacts & Binaries
+# ============================================
+
+# Compiled Go binaries
 *.exe
 statusline
 tools/statusline
+tools/statusline.exe
 
-# Personal/Private Configurations
-# Uncomment if you want to exclude your personal CLAUDE.md
-# config/CLAUDE.md
+# Build outputs
+dist/
+build/
+out/
 
-# Temporary Files
+# ============================================
+# System & Editor Files
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editor swap/backup files
+*.swp
+*.swo
+*.swn
+*.bak
+*.backup
+*.tmp
+*.log
+
+# ============================================
+# Development & Testing
+# ============================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary directories
 tmp/
 temp/
 .temp/
-
-# Cache Files
-.cache/
 cache/
+.cache/
 
-# System Configuration Backups
-*.backup
-*.bak
-settings.json.backup
+# Test coverage
+coverage/
+.coverage
+*.cover
 
-# Local Development
-.env
-.env.local
-*.local
+# Debug files
+*.dmp
+*.pdb
