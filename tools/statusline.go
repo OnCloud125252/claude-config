@@ -167,10 +167,14 @@ func main() {
 	projectName := filepath.Base(input.Workspace.CurrentDir)
 
 	// Output status line with all colors applied here
-	fmt.Printf("%s[%s%s%s]  %s %s%s  %s %s%s │ %s │ %s%s%s\n",
+	// First line: model, project, git branch
+	fmt.Printf("%s[%s%s%s]  %s %s%s  %s %s%s\n",
 		ColorReset, modelColor, modelName, ColorReset,
 		ColorSilver, projectName, ColorReset,
-		ColorYellow, gitBranch, ColorReset,
+		ColorYellow, gitBranch, ColorReset)
+
+	// Second line: context usage and total hours
+	fmt.Printf("%s │ %s%s%s\n",
 		contextUsage,
 		ColorGreen, totalHours, ColorReset)
 
