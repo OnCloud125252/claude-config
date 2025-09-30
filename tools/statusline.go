@@ -168,13 +168,13 @@ func main() {
 
 	// Output status line with all colors applied here
 	// First line: model, project, git branch
-	fmt.Printf("%s[%s%s%s]  %s %s%s  %s %s%s\n",
+	fmt.Printf("╭─%s[%s%s%s]  %s %s%s  %s %s%s\n",
 		ColorReset, modelColor, modelName, ColorReset,
 		ColorSilver, projectName, ColorReset,
 		ColorYellow, gitBranch, ColorReset)
 
 	// Second line: context usage and total hours
-	fmt.Printf("%s │ %s%s%s\n",
+	fmt.Printf("╰─%s │ %s%s%s\n",
 		contextUsage,
 		ColorGreen, totalHours, ColorReset)
 
@@ -461,6 +461,15 @@ func generateProgressBar(percentage int) string {
 
 	var bar strings.Builder
 
+	// Left bracket - colored as filled if any progress, gray if empty
+	if percentage > 0 {
+		bar.WriteString(color)
+	} else {
+		bar.WriteString(ColorGray)
+	}
+	bar.WriteString("")
+	bar.WriteString(ColorReset)
+
 	// Filled portion
 	if filled > 0 {
 		bar.WriteString(color)
@@ -471,10 +480,18 @@ func generateProgressBar(percentage int) string {
 	// Empty portion
 	if empty > 0 {
 		bar.WriteString(ColorGray)
-		bar.WriteString(strings.Repeat("░", empty))
-		bar.WriteString(color)
+		bar.WriteString(strings.Repeat("█", empty))
 		bar.WriteString(ColorReset)
 	}
+
+	// Right bracket - colored as filled if 100%, gray otherwise
+	if percentage >= 100 {
+		bar.WriteString(color)
+	} else {
+		bar.WriteString(ColorGray)
+	}
+	bar.WriteString("")
+	bar.WriteString(ColorReset)
 
 	return bar.String()
 }
