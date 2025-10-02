@@ -9,6 +9,15 @@ This is my development environment. Follow these preferences and conventions.
 - Use meaningful variable names, avoid single letters except for loop indices
 - Always use const/let, never var in JavaScript/TypeScript
 
+## Node.js Development
+- **Always use `bun` by default** for Node.js projects
+  - `bun install` - install dependencies
+  - `bun run <script>` - run package.json scripts
+  - `bun add <package>` - add dependencies
+  - `bun remove <package>` - remove dependencies
+  - `bun <file.ts>` - run TypeScript files directly
+- Only use npm or yarn if the project explicitly requires it (e.g., existing lock files)
+
 ## Git Commit Conventions
 - Follow Conventional Commits format (feat, fix, docs, style, refactor, test, chore)
 - Keep commit messages under 72 characters
