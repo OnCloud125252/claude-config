@@ -43,7 +43,7 @@ const (
 	ProgressBarWidth      = 10
 	GitBranchCacheSeconds = 5
 	MaxUserMessageLines   = 3
-	UserMessageLineWidth  = 70
+	UserMessageLineWidth  = 60
 	MaxTranscriptLines    = 100
 	MaxUserSearchLines    = 200
 	MaxScanTokenSize      = 1024 * 1024 // 1MB for JSON lines
