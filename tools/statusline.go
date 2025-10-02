@@ -3,7 +3,6 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -44,7 +43,7 @@ const (
 	ProgressBarWidth      = 10
 	GitBranchCacheSeconds = 5
 	MaxUserMessageLines   = 3
-	UserMessageLineWidth  = 80
+	UserMessageLineWidth  = 70
 	MaxTranscriptLines    = 100
 	MaxUserSearchLines    = 200
 	MaxScanTokenSize      = 1024 * 1024 // 1MB for JSON lines
@@ -97,6 +96,20 @@ var (
 	gitBranchExpires time.Time
 	cacheMutex       sync.RWMutex
 )
+
+// Session cache for write debouncing
+var (
+	sessionCache      = make(map[string]*sessionCacheEntry)
+	sessionCacheMutex sync.RWMutex
+)
+
+type sessionCacheEntry struct {
+	session   Session
+	lastWrite time.Time
+	dirty     bool
+}
+
+const sessionWriteDebounce = 2 * time.Second
 
 func main() {
 	var input Input
@@ -166,6 +179,11 @@ func main() {
 	modelColor := getModelColor(modelName)
 	projectName := filepath.Base(input.Workspace.CurrentDir)
 
+	// Output user message with frame continuation
+	if userMessage != "" {
+		fmt.Printf("%s%s", ColorReset, userMessage)
+	}
+
 	// Output status line with all colors applied here
 	// First line: model, project, git branch
 	fmt.Printf("╭─%s[%s%s%s]  %s %s%s  %s %s%s\n",
@@ -177,11 +195,6 @@ func main() {
 	fmt.Printf("╰─%s │ %s%s%s\n",
 		contextUsage,
 		ColorGreen, totalHours, ColorReset)
-
-	// Output user message with frame continuation
-	if userMessage != "" {
-		fmt.Printf("%s%s", ColorReset, userMessage)
-	}
 }
 
 // Get model color based on model name
@@ -194,7 +207,7 @@ func getModelColor(model string) string {
 	return ColorReset
 }
 
-// Get git branch with caching
+// Get git branch with caching (optimized single command)
 func getGitBranch() string {
 	cacheMutex.RLock()
 	if time.Now().Before(gitBranchExpires) && gitBranchCache != "" {
@@ -204,16 +217,7 @@ func getGitBranch() string {
 	}
 	cacheMutex.RUnlock()
 
-	// Check if it's a git repository
-	if _, err := os.Stat(".git"); os.IsNotExist(err) {
-		// Try to find git root directory
-		cmd := exec.Command("git", "rev-parse", "--git-dir")
-		if err := cmd.Run(); err != nil {
-			return ""
-		}
-	}
-
-	// Get current branch
+	// Single command - if not a git repo or other error, this will fail gracefully
 	cmd := exec.Command("git", "branch", "--show-current")
 	output, err := cmd.Output()
 	if err != nil {
@@ -225,18 +229,16 @@ func getGitBranch() string {
 		return ""
 	}
 
-	result := branch
-
 	// Update cache
 	cacheMutex.Lock()
-	gitBranchCache = result
+	gitBranchCache = branch
 	gitBranchExpires = time.Now().Add(GitBranchCacheSeconds * time.Second)
 	cacheMutex.Unlock()
 
-	return result
+	return branch
 }
 
-// Update session with heartbeat
+// Update session with heartbeat (optimized with write debouncing)
 func updateSession(sessionID string) {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -252,18 +254,31 @@ func updateSession(sessionID string) {
 	currentTime := time.Now().Unix()
 	today := time.Now().Format("2006-01-02")
 
-	var session Session
+	sessionCacheMutex.Lock()
+	defer sessionCacheMutex.Unlock()
 
-	// Read existing session
-	if data, err := os.ReadFile(sessionFile); err == nil {
-		if err := json.Unmarshal(data, &session); err != nil {
-			// Invalid JSON, create new session
+	entry, exists := sessionCache[sessionID]
+
+	// Load from disk if not in cache
+	if !exists {
+		var session Session
+		if data, err := os.ReadFile(sessionFile); err == nil {
+			if err := json.Unmarshal(data, &session); err != nil {
+				session = createNewSession(sessionID, today, currentTime)
+			}
+		} else {
 			session = createNewSession(sessionID, today, currentTime)
 		}
-	} else {
-		// New session
-		session = createNewSession(sessionID, today, currentTime)
+
+		entry = &sessionCacheEntry{
+			session:   session,
+			lastWrite: time.Now(),
+			dirty:     false,
+		}
+		sessionCache[sessionID] = entry
 	}
+
+	session := &entry.session
 
 	// Update heartbeat
 	gap := currentTime - session.LastHeartbeat
@@ -291,10 +306,20 @@ func updateSession(sessionID string) {
 	}
 	session.TotalSeconds = total
 
-	// Save session
+	entry.dirty = true
+
+	// Only write if debounce time has passed
+	if time.Since(entry.lastWrite) >= sessionWriteDebounce {
+		writeSessionToDisk(sessionFile, session)
+		entry.lastWrite = time.Now()
+		entry.dirty = false
+	}
+}
+
+// Helper function to write session to disk
+func writeSessionToDisk(path string, session *Session) {
 	if data, err := json.Marshal(session); err == nil {
-		if err := os.WriteFile(sessionFile, data, 0644); err != nil {
-			// Log error silently, don't break the tool
+		if err := os.WriteFile(path, data, 0644); err != nil {
 			fmt.Fprintf(os.Stderr, "Warning: Failed to save session: %v\n", err)
 		}
 	}
@@ -584,10 +609,9 @@ func isSystemMessage(content string) bool {
 		return true
 	}
 
-	// Filter XML tags
+	// Filter XML tags (but NOT command tags - those are valid user inputs)
 	xmlTags := []string{
-		"<local-command-stdout>", "<command-name>",
-		"<command-message>", "<command-args>",
+		"<local-command-stdout>",
 		"<bash-stdout>", "<bash-stderr>", "<bash-input>",
 	}
 	for _, tag := range xmlTags {
@@ -617,7 +641,7 @@ func createNewSession(sessionID, date string, currentTime int64) Session {
 	}
 }
 
-// Helper function to read lines from file
+// Helper function to read lines from file (optimized reverse reading)
 func readLastLines(filePath string, maxLines int) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -625,25 +649,68 @@ func readLastLines(filePath string, maxLines int) ([]string, error) {
 	}
 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
-	if maxLines == MaxTranscriptLines {
-		// Set larger buffer for JSON processing
-		buf := make([]byte, 0, MaxScanTokenSize)
-		scanner.Buffer(buf, MaxScanTokenSize)
-	}
-
-	allLines := make([]string, 0)
-	for scanner.Scan() {
-		allLines = append(allLines, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
+	// Get file size
+	stat, err := file.Stat()
+	if err != nil {
 		return nil, err
 	}
+	fileSize := stat.Size()
 
-	start := max(0, len(allLines)-maxLines)
+	// Handle empty file
+	if fileSize == 0 {
+		return []string{}, nil
+	}
 
-	return allLines[start:], nil
+	// Read in chunks from end backwards
+	const chunkSize = 8192
+	var lines []string
+	var partial []byte
+
+	for offset := fileSize; offset > 0 && len(lines) < maxLines; {
+		readSize := min(int64(chunkSize), offset)
+		offset -= readSize
+
+		buf := make([]byte, readSize)
+		if _, err := file.ReadAt(buf, offset); err != nil {
+			return nil, err
+		}
+
+		// Prepend to partial buffer from previous iteration
+		if len(partial) > 0 {
+			buf = append(buf, partial...)
+		}
+		partial = nil
+
+		// Find newlines from end to start
+		lineEnd := len(buf)
+		for i := len(buf) - 1; i >= 0; i-- {
+			if buf[i] == '\n' {
+				// Extract line (excluding newline)
+				if i+1 < lineEnd {
+					line := string(buf[i+1 : lineEnd])
+					// Prepend to lines (we're reading backwards)
+					lines = append([]string{line}, lines...)
+					if len(lines) >= maxLines {
+						return lines, nil
+					}
+				}
+				lineEnd = i
+			}
+		}
+
+		// Save remaining bytes for next iteration
+		if lineEnd > 0 {
+			partial = make([]byte, lineEnd)
+			copy(partial, buf[:lineEnd])
+		}
+	}
+
+	// Handle remaining partial line (first line of file)
+	if len(partial) > 0 && len(lines) < maxLines {
+		lines = append([]string{string(partial)}, lines...)
+	}
+
+	return lines, nil
 }
 
 func formatUserMessage(message string) string {
@@ -651,11 +718,32 @@ func formatUserMessage(message string) string {
 		return ""
 	}
 
+	// Extract command name if this is a command message
+	commandName := extractCommandName(message)
+	if commandName != "" {
+		// Display the command in purple
+		return fmt.Sprintf("%s%s❯ %s%s\n",
+			ColorReset, ColorPurple, commandName, ColorReset)
+	}
+
 	maxLines := MaxUserMessageLines
 	lineWidth := UserMessageLineWidth
 
 	lines := strings.Split(message, "\n")
 	var result []string
+
+	// Detect if this is a command (starts with /)
+	isCommand := false
+	if len(lines) > 0 {
+		trimmed := strings.TrimSpace(lines[0])
+		isCommand = strings.HasPrefix(trimmed, "/")
+	}
+
+	// Choose color based on message type
+	promptColor := ColorGreen
+	if isCommand {
+		promptColor = ColorPurple
+	}
 
 	for i, line := range lines {
 		if i >= maxLines {
@@ -667,13 +755,13 @@ func formatUserMessage(message string) string {
 			line = line[:lineWidth-3] + "..."
 		}
 
-		result = append(result, fmt.Sprintf("%s> %s%s%s",
-			ColorReset, ColorGreen, line, ColorReset))
+		result = append(result, fmt.Sprintf("%s%s❯ %s%s",
+			ColorReset, promptColor, line, ColorReset))
 	}
 
 	if len(lines) > maxLines {
-		result = append(result, fmt.Sprintf("%s> ... (%d more lines)%s",
-			ColorReset, len(lines)-maxLines, ColorReset))
+		result = append(result, fmt.Sprintf("%s❯ %s... (%d more lines)%s",
+			promptColor, ColorGray, len(lines)-maxLines, ColorReset))
 	}
 
 	if len(result) > 0 {
@@ -681,4 +769,21 @@ func formatUserMessage(message string) string {
 	}
 
 	return ""
+}
+
+// Extract command name from XML tags
+func extractCommandName(content string) string {
+	// Look for <command-name>/command-name</command-name>
+	start := strings.Index(content, "<command-name>")
+	if start == -1 {
+		return ""
+	}
+	start += len("<command-name>")
+
+	end := strings.Index(content[start:], "</command-name>")
+	if end == -1 {
+		return ""
+	}
+
+	return strings.TrimSpace(content[start : start+end])
 }
