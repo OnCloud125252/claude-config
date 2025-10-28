@@ -18,6 +18,13 @@ This is my development environment. Follow these preferences and conventions.
   - `bun <file.ts>` - run TypeScript files directly
 - Only use npm or yarn if the project explicitly requires it (e.g., existing lock files)
 
+## iOS Development
+- **Verify builds with xcbeautify** for cleaner output
+  - `xcodebuild -scheme <SchemeName> -configuration Debug -sdk iphonesimulator build | xcbeautify`
+  - Example: `xcodebuild -scheme iGotYouHaha -configuration Debug -sdk iphonesimulator build | xcbeautify`
+- Use XcodeGen (`project.yml`) for project generation instead of committing `.xcodeproj`
+- Install xcbeautify: `brew install xcbeautify`
+
 ## Git Commit Conventions
 - Follow Conventional Commits format (feat, fix, docs, style, refactor, test, chore)
 - Keep commit messages under 72 characters
@@ -29,6 +36,7 @@ This is my development environment. Follow these preferences and conventions.
 - Check for these common scripts: `npm run test`, `npm run lint`, `npm run typecheck`
 
 ## Development Workflow
+- **Always create a todo list before starting any operation** to track tasks and provide visibility
 - Always read existing code before making changes
 - Follow existing patterns and conventions in the codebase
 - Prefer modifying existing files over creating new ones
