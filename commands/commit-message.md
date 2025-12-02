@@ -1,11 +1,10 @@
 ---
+name: Commit Message Creator
 allowed-tools: Bash(git diff --cached), Bash(git log -n 10), Bash(git status --porcelain), Bash(pbcopy), Bash(echo:*)
 disable-model-invocation: true
 description: Create a Conventional Commits style message with intelligent type detection and copy to clipboard
-model: claude-sonnet-4-20250514
+model: claude-haiku-4-5
 ---
-
-## Instructions
 
 Analyze staged changes and create a Conventional Commits compliant message.
 

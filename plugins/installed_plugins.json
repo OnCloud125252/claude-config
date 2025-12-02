@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "plugins": {
+    "frontend-design@claude-code-plugins": {
+      "version": "1.0.0",
+      "installedAt": "2025-11-22T13:08:30.222Z",
+      "lastUpdated": "2025-11-22T13:08:30.222Z",
+      "installPath": "/Users/oncloud/.claude/plugins/marketplaces/claude-code-plugins/plugins/frontend-design",
+      "gitCommitSha": "5a17f570db44d73c0cf911814f543954fc5bb9de",
+      "isLocal": true
+    },
+    "local-skills@local": {
+      "version": "1.0.0",
+      "installedAt": "2025-11-25T00:00:00.000Z",
+      "lastUpdated": "2025-11-25T00:00:00.000Z",
+      "installPath": "/Users/oncloud/.claude/plugins/repos/local-skills",
+      "isLocal": true
+    }
+  }
+}

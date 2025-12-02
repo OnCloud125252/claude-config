@@ -8,6 +8,10 @@
     "type": "command",
     "command": "go run ~/.claude/tools/statusline.go"
   },
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": true,
+    "local-skills@local": true
+  },
   "outputStyle": "Explanatory",
   "alwaysThinkingEnabled": true
 }
