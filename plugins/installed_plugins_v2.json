@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "plugins": {
+    "frontend-design@claude-code-plugins": [
+      {
+        "scope": "project",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-code-plugins/frontend-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-22T13:08:30.222Z",
+        "lastUpdated": "2025-12-10T12:08:00.225Z",
+        "gitCommitSha": "5a17f570db44d73c0cf911814f543954fc5bb9de",
+        "isLocal": true,
+        "projectPath": "/Users/oncloud/Projects/OnCloud/Novaaa-QR-Generate"
+      }
+    ],
+    "local-skills@local": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/local/local-skills/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-25T00:00:00.000Z",
+        "lastUpdated": "2025-11-25T00:00:00.000Z",
+        "isLocal": true
+      }
+    ],
+    "bun@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/bun/720b8b291703",
+        "version": "720b8b291703",
+        "installedAt": "2025-12-07T16:56:49.108Z",
+        "lastUpdated": "2025-12-07T16:56:49.108Z",
+        "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
+        "isLocal": true
+      }
+    ],
+    "frontend@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/frontend/720b8b291703",
+        "version": "720b8b291703",
+        "installedAt": "2025-12-07T16:56:49.108Z",
+        "lastUpdated": "2025-12-07T16:56:49.108Z",
+        "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
+        "isLocal": true
+      }
+    ],
+    "code-analysis@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/code-analysis/720b8b291703",
+        "version": "720b8b291703",
+        "installedAt": "2025-12-07T16:56:49.108Z",
+        "lastUpdated": "2025-12-07T16:56:49.108Z",
+        "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
+        "isLocal": true
+      }
+    ]
+  }
+}
