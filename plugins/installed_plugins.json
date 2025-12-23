@@ -1,36 +1,60 @@
 {
-  "version": 1,
+  "version": 2,
   "plugins": {
-    "local-skills@local": {
-      "version": "1.0.0",
-      "installedAt": "2025-11-25T00:00:00.000Z",
-      "lastUpdated": "2025-11-25T00:00:00.000Z",
-      "installPath": "/Users/oncloud/.claude/plugins/cache/local/local-skills/1.0.0",
-      "isLocal": true
-    },
-    "bun@mag-claude-plugins": {
-      "version": "720b8b291703",
-      "installedAt": "2025-12-07T16:56:49.108Z",
-      "lastUpdated": "2025-12-07T16:56:49.108Z",
-      "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/bun/720b8b291703",
-      "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
-      "isLocal": true
-    },
-    "frontend@mag-claude-plugins": {
-      "version": "720b8b291703",
-      "installedAt": "2025-12-07T16:56:49.108Z",
-      "lastUpdated": "2025-12-07T16:56:49.108Z",
-      "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/frontend/720b8b291703",
-      "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
-      "isLocal": true
-    },
-    "code-analysis@mag-claude-plugins": {
-      "version": "720b8b291703",
-      "installedAt": "2025-12-07T16:56:49.108Z",
-      "lastUpdated": "2025-12-07T16:56:49.108Z",
-      "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/code-analysis/720b8b291703",
-      "gitCommitSha": "720b8b2917035021610c03b194d9cc441a6aea77",
-      "isLocal": true
-    }
+    "frontend-design@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-code-plugins/frontend-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-13T02:00:41.787Z",
+        "lastUpdated": "2025-12-20T20:49:59.506Z",
+        "gitCommitSha": "eb872450105745e9489c6f6d73fa2fb4ff5a1e9a",
+        "isLocal": true
+      }
+    ],
+    "bun@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/bun/1.5.2",
+        "version": "1.5.2",
+        "installedAt": "2025-12-13T02:00:41.787Z",
+        "lastUpdated": "2025-12-20T20:49:59.506Z",
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
+        "isLocal": true
+      }
+    ],
+    "frontend@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/frontend/3.11.0",
+        "version": "3.11.0",
+        "installedAt": "2025-12-13T02:00:41.787Z",
+        "lastUpdated": "2025-12-20T20:49:59.506Z",
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
+        "isLocal": true
+      }
+    ],
+    "code-analysis@mag-claude-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/mag-claude-plugins/code-analysis/1.5.0",
+        "version": "1.5.0",
+        "installedAt": "2025-12-13T02:00:41.787Z",
+        "lastUpdated": "2025-12-20T20:49:59.506Z",
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
+        "isLocal": true
+      }
+    ],
+    "gopls-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T08:03:53.884Z",
+        "lastUpdated": "2025-12-20T20:49:59.506Z",
+        "gitCommitSha": "0bb73b8a5ce9ea1d33c0888c6fd54d29fcb2fefc",
+        "isLocal": true
+      }
+    ]
   }
 }
