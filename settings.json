@@ -20,7 +20,9 @@
     "bun@mag-claude-plugins": true,
     "frontend@mag-claude-plugins": true,
     "code-analysis@mag-claude-plugins": true,
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "mag-claude-plugins": {

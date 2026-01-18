@@ -1,7 +1,7 @@
 ---
 name: Project Cleaner
 description: Deep cleanup - enforces best practices, removes unused code, formats, and cleans
-model: claude-sonnet-4-5
+model: claude-opus-4-5
 ---
 
 Analyze the project directory to identify and remove unused code:
@@ -17,10 +17,13 @@ Analyze the project directory to identify and remove unused code:
    - Commented-out code blocks
    - Duplicate implementations
 
-3. Run any formatters or linters to ensure code quality:
+3. Reorganize files:
+   - Move related code (functions/components/hooks etc.) into dedicated files or folders
+   - Ensure a logical structure that follows best practices for the specific framework/language
+   - Rename files for clarity and consistency
+
+4. Run any formatters or linters to ensure code quality:
    - Use tools like Biome, ESLint, Prettier, or similar for project's language/framework.
 
 Important: Don't remove:
-- Code imported in test files
-- Anything in package.json dependencies
 - Code that's called dynamically (check for string-based imports)

@@ -41,6 +41,8 @@ This is my development environment. Follow these preferences and conventions.
 - Follow existing patterns and conventions in the codebase
 - Prefer modifying existing files over creating new ones
 - Never create documentation files unless explicitly requested
+- **Use code-simplifier agent after large code changes** (major features, refactors, etc.) to cleanup and maintain code quality
+- **Avoid running background tasks** like `bun run dev` - use foreground execution instead for better visibility and control
 
 ## File Operations
 - **ALWAYS use `trash` instead of `rm`** for file deletion
@@ -60,13 +62,3 @@ This is my development environment. Follow these preferences and conventions.
 - Use ripgrep (`rg`) instead of grep for searching
 - Prefer using Glob and Grep tools over bash find/grep commands
 - Always use absolute paths when working with files
-
-## Project-Specific Notes
-<!-- Add your project-specific requirements here -->
-<!-- Example: This project uses Prettier for formatting -->
-<!-- Example: API endpoints should follow REST conventions -->
-
-## Frequently Used Commands
-<!-- Add commands you use often for quick reference -->
-<!-- Example: Build: npm run build -->
-<!-- Example: Deploy: npm run deploy -->

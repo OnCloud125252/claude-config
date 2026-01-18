@@ -8,8 +8,7 @@
         "version": "1.0.0",
         "installedAt": "2025-12-13T02:00:41.787Z",
         "lastUpdated": "2025-12-20T20:49:59.506Z",
-        "gitCommitSha": "eb872450105745e9489c6f6d73fa2fb4ff5a1e9a",
-        "isLocal": true
+        "gitCommitSha": "eb872450105745e9489c6f6d73fa2fb4ff5a1e9a"
       }
     ],
     "bun@mag-claude-plugins": [
@@ -19,8 +18,7 @@
         "version": "1.5.2",
         "installedAt": "2025-12-13T02:00:41.787Z",
         "lastUpdated": "2025-12-20T20:49:59.506Z",
-        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
-        "isLocal": true
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0"
       }
     ],
     "frontend@mag-claude-plugins": [
@@ -30,8 +28,7 @@
         "version": "3.11.0",
         "installedAt": "2025-12-13T02:00:41.787Z",
         "lastUpdated": "2025-12-20T20:49:59.506Z",
-        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
-        "isLocal": true
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0"
       }
     ],
     "code-analysis@mag-claude-plugins": [
@@ -41,8 +38,7 @@
         "version": "1.5.0",
         "installedAt": "2025-12-13T02:00:41.787Z",
         "lastUpdated": "2025-12-20T20:49:59.506Z",
-        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0",
-        "isLocal": true
+        "gitCommitSha": "ca0ebbe88978d8736d9f33737eba2cf7b838dab0"
       }
     ],
     "gopls-lsp@claude-plugins-official": [
@@ -52,8 +48,27 @@
         "version": "1.0.0",
         "installedAt": "2025-12-20T08:03:53.884Z",
         "lastUpdated": "2025-12-20T20:49:59.506Z",
-        "gitCommitSha": "0bb73b8a5ce9ea1d33c0888c6fd54d29fcb2fefc",
-        "isLocal": true
+        "gitCommitSha": "0bb73b8a5ce9ea1d33c0888c6fd54d29fcb2fefc"
+      }
+    ],
+    "clangd-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-10T11:03:10.151Z",
+        "lastUpdated": "2026-01-10T11:03:10.151Z",
+        "gitCommitSha": "823d9dc56c387d0945e9d9e20f8c7de77e611acb"
+      }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-16T11:20:54.767Z",
+        "lastUpdated": "2026-01-16T11:20:54.767Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ]
   }

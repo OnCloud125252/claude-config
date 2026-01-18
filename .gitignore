@@ -9,6 +9,9 @@ history.jsonl
 # Session tracking (contains usage data and timestamps)
 session-tracker/
 
+# Session environment snapshots
+session-env/
+
 # Shell environment snapshots
 shell-snapshots/
 
@@ -49,6 +52,14 @@ plugins/repos/
 plugins/*/cache/
 plugins/*/data/
 plugins/*/node_modules/
+plugins/marketplaces/
+plugins/install-counts-cache.json
+
+# Paste cache (clipboard history)
+paste-cache/
+
+# Telemetry data
+telemetry/
 
 # MCP (Model Context Protocol) servers runtime
 mcp-servers/
@@ -125,3 +136,5 @@ plans/
 
 # node_modules (if applicable)
 node_modules/
+
+stats-cache.json
