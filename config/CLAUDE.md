@@ -41,7 +41,7 @@ This is my development environment. Follow these preferences and conventions.
 - Follow existing patterns and conventions in the codebase
 - Prefer modifying existing files over creating new ones
 - Never create documentation files unless explicitly requested
-- **Use code-simplifier agent after large code changes** (major features, refactors, etc.) to cleanup and maintain code quality
+- **Use "code-simplifier:code-simplifier" agent to **ruthlessly and aggressively simplify** code after large code changes** (major features, refactors, etc.) to cleanup and maintain code quality
 - **Avoid running background tasks** like `bun run dev` - use foreground execution instead for better visibility and control
 
 ## File Operations
