@@ -1,26 +1,27 @@
 {
-  "claude-code-plugins": {
-    "source": {
-      "source": "github",
-      "repo": "anthropics/claude-code"
-    },
-    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-01-18T14:14:33.002Z"
-  },
-  "mag-claude-plugins": {
-    "source": {
-      "source": "github",
-      "repo": "MadAppGang/claude-code"
-    },
-    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/mag-claude-plugins",
-    "lastUpdated": "2026-01-11T15:46:38.424Z"
-  },
   "claude-plugins-official": {
     "source": {
       "source": "github",
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-01-18T13:44:29.241Z"
+    "lastUpdated": "2026-04-04T16:03:22.124Z"
+  },
+  "happy-claude-skills": {
+    "source": {
+      "source": "github",
+      "repo": "iamzhihuix/happy-claude-skills"
+    },
+    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/happy-claude-skills",
+    "lastUpdated": "2026-04-04T18:26:31.534Z",
+    "autoUpdate": true
+  },
+  "notion-plugin-marketplace": {
+    "source": {
+      "source": "github",
+      "repo": "makenotion/claude-code-notion-plugin"
+    },
+    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/notion-plugin-marketplace",
+    "lastUpdated": "2026-03-17T07:21:14.261Z"
   }
 }
