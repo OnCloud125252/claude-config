@@ -1,83 +1,111 @@
 # ============================================
-# Claude Code CLI Runtime & Session Data
+# Claude Code — Runtime & Session Data
 # ============================================
 
 # Conversation history and transcripts
-history.jsonl
 *.jsonl
 
-# Session tracking (contains usage data and timestamps)
-session-tracker/
+# Session state (per-process JSON snapshots)
+/sessions
+
+# Session tracking (usage data and timestamps)
+/session-tracker
 
 # Session environment snapshots
-session-env/
+/session-env
 
 # Shell environment snapshots
-shell-snapshots/
+/shell-snapshots
 
 # Project-specific conversation history
-projects/
+/projects
 
 # Todo list tracking (per-session)
-todos/
+/todos
+
+# Subagent task state (UUID-based ephemeral data)
+/tasks
+
+# Agent memory / context storage
+/agent-memory
 
 # File edit history tracking
-file-history/
+/file-history
+
+# Usage analytics (facets, session-meta, reports)
+/usage-data
 
 # IDE integration (lock files, workspace data)
-ide/
+/ide
 *.lock
 
 # Statsig analytics and feature flags cache
-statsig/
+/statsig
+
+# Paste cache (clipboard history)
+/paste-cache
+
+# Telemetry data
+/telemetry
+
+# MCP (Model Context Protocol) servers runtime
+/mcp-servers
 
 # ============================================
 # Settings & Configuration
 # ============================================
 
-# Local settings (personal preferences, not shared)
+# Local settings (machine-specific, not shared)
 settings.local.json
-**/settings.local.json
-
-# Uncomment to exclude personal system-wide config
-# config/CLAUDE.md
 
 # ============================================
 # Plugins & Extensions
 # ============================================
 
-# Plugin configuration and runtime data
-plugins/config.json
-plugins/repos/
-plugins/*/cache/
-plugins/*/data/
-plugins/*/node_modules/
-plugins/marketplaces/
-plugins/install-counts-cache.json
+# Plugin runtime data and caches
+/plugins/config.json
+/plugins/repos
+/plugins/cache
+/plugins/*/cache
+/plugins/data
+/plugins/*/data
+/plugins/*/node_modules
+/plugins/marketplaces
+/plugins/install-counts-cache.json
 
-# Paste cache (clipboard history)
-paste-cache/
+# ============================================
+# Git Worktrees
+# ============================================
 
-# Telemetry data
-telemetry/
-
-# MCP (Model Context Protocol) servers runtime
-mcp-servers/
+# Isolated worktree directories (created by Claude Code)
+/worktrees
 
 # ============================================
 # Build Artifacts & Binaries
 # ============================================
 
-# Compiled Go binaries
+# Compiled binaries
 *.exe
-statusline
-tools/statusline
-tools/statusline.exe
 
 # Build outputs
-dist/
-build/
-out/
+/dist
+/build
+/out
+
+# ============================================
+# Caches & Temporary Files
+# ============================================
+
+/stats-cache.json
+/cache
+/.cache
+/tmp
+/temp
+/.temp
+
+# Backup files
+*.bak
+*.backup
 
 # ============================================
 # System & Editor Files
@@ -100,8 +128,6 @@ desktop.ini
 *.swp
 *.swo
 *.swn
-*.bak
-*.backup
 *.tmp
 *.log
 
@@ -109,32 +135,26 @@ desktop.ini
 # Development & Testing
 # ============================================
 
-# Environment variables
+# Environment variables (secrets)
 .env
 .env.local
 .env.*.local
 
-# Temporary directories
-tmp/
-temp/
-.temp/
-cache/
-.cache/
-
 # Test coverage
-coverage/
+/coverage
 .coverage
 *.cover
 
 # Debug files
 *.dmp
 *.pdb
-debug/
+/debug
 
 # Plan files
-plans/
+/plans
 
-# node_modules (if applicable)
-node_modules/
+# Node modules
+node_modules
 
-stats-cache.json
+# Backup directory
+/backups
