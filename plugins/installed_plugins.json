@@ -4,10 +4,10 @@
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/frontend-design/565d2a5d1c82",
-        "version": "565d2a5d1c82",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/frontend-design/53f447f4740a",
+        "version": "53f447f4740a",
         "installedAt": "2026-02-01T16:38:55.500Z",
-        "lastUpdated": "2026-04-04T18:56:03.055Z",
+        "lastUpdated": "2026-04-04T19:03:19.603Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
       }
     ],
@@ -64,20 +64,20 @@
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/code-review/565d2a5d1c82",
-        "version": "565d2a5d1c82",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/code-review/53f447f4740a",
+        "version": "53f447f4740a",
         "installedAt": "2026-02-01T16:43:53.020Z",
-        "lastUpdated": "2026-04-04T18:56:03.072Z",
+        "lastUpdated": "2026-04-04T19:03:19.596Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
       }
     ],
     "security-guidance@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/security-guidance/565d2a5d1c82",
-        "version": "565d2a5d1c82",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/security-guidance/53f447f4740a",
+        "version": "53f447f4740a",
         "installedAt": "2026-02-20T15:40:45.253Z",
-        "lastUpdated": "2026-04-04T18:56:03.066Z",
+        "lastUpdated": "2026-04-04T19:03:19.591Z",
         "gitCommitSha": "8deab8460a9d4df5a01315ef722a5ca6b061c074"
       }
     ],
@@ -144,10 +144,10 @@
     "skill-creator@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/skill-creator/565d2a5d1c82",
-        "version": "565d2a5d1c82",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/skill-creator/53f447f4740a",
+        "version": "53f447f4740a",
         "installedAt": "2026-03-18T13:32:07.029Z",
-        "lastUpdated": "2026-04-04T18:56:03.059Z",
+        "lastUpdated": "2026-04-04T19:03:19.614Z",
         "gitCommitSha": "6b70f99f769f58b9b642dc8a271936b17862cf8c"
       }
     ],
