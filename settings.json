@@ -21,9 +21,9 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/update-recent-work.sh",
-            "async": true,
             "timeout": 120,
-            "statusMessage": "Updating recent work summary..."
+            "statusMessage": "Updating recent work summary...",
+            "async": true
           }
         ]
       }
@@ -83,13 +83,13 @@
     }
   },
   "outputStyle": "Explanatory",
+  "spinnerTipsEnabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "autoUpdatesChannel": "stable",
-  "minimumVersion": "2.1.27",
+  "minimumVersion": "2.1.81",
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "installedPluginVersions": {},
-  "ENABLE_LSP_TOOL": "1",
-  "spinnerTipsEnabled": false
+  "ENABLE_LSP_TOOL": "1"
 }
