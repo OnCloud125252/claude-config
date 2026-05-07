@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-04-09T18:24:53.133Z"
+    "lastUpdated": "2026-05-07T07:06:39.160Z"
   },
   "happy-claude-skills": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "iamzhihuix/happy-claude-skills"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/happy-claude-skills",
-    "lastUpdated": "2026-04-09T18:24:22.112Z",
+    "lastUpdated": "2026-05-07T07:06:41.841Z",
     "autoUpdate": true
   },
   "notion-plugin-marketplace": {
@@ -22,6 +22,14 @@
       "repo": "makenotion/claude-code-notion-plugin"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/notion-plugin-marketplace",
-    "lastUpdated": "2026-03-17T07:21:14.261Z"
+    "lastUpdated": "2026-05-05T07:09:05.572Z"
+  },
+  "zeabur-rag": {
+    "source": {
+      "source": "github",
+      "repo": "zeabur/zeabur-rag"
+    },
+    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/zeabur-rag",
+    "lastUpdated": "2026-05-05T07:09:13.003Z"
   }
 }

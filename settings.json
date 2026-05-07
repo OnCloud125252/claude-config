@@ -1,12 +1,66 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+    "CLAUDE_CODE_NEW_INIT": "1",
+    "DISABLE_INSTALLATION_CHECKS": "1",
+    "DISABLE_FEEDBACK_COMMAND": "1",
+    "ENABLE_LSP_TOOL": "1",
+    "RAG_API_KEY": "rak_ab4bff4993952c2a003aa6ec2a449f6a804184007562f0a1f26e48115fa7b4a3",
+    "ZEABUR_RAG_URL": "https://kb.zeabur.com",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "COORDINATOR_MODE": "1"
+  },
   "permissions": {
-    "allow": [],
-    "deny": [],
-    "ask": [],
     "defaultMode": "default",
     "additionalDirectories": []
   },
+  "model": "opus[1m]",
   "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/oncloud/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/oncloud/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/load-recent-work.sh",
+            "timeout": 10,
+            "statusMessage": "Loading recent work summary..."
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
@@ -27,28 +81,6 @@
           }
         ]
       }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "startup",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/load-recent-work.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
@@ -57,22 +89,23 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": false,
-    "typescript-lsp@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
     "browser@happy-claude-skills": false,
-    "code-review@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": false,
+    "chrome-devtools-mcp@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true,
-    "php-lsp@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "notion-workspace-plugin@notion-plugin-marketplace": true,
+    "php-lsp@claude-plugins-official": false,
+    "pyright-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": false,
+    "rust-analyzer-lsp@claude-plugins-official": false,
+    "security-guidance@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "chrome-devtools-mcp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "zeabur-rag@zeabur-rag": true
   },
   "extraKnownMarketplaces": {
     "notion-plugin-marketplace": {
@@ -80,16 +113,33 @@
         "source": "github",
         "repo": "makenotion/claude-code-notion-plugin"
       }
+    },
+    "zeabur-rag": {
+      "source": {
+        "source": "github",
+        "repo": "zeabur/zeabur-rag"
+      }
     }
   },
   "outputStyle": "Explanatory",
+  "language": "en",
+  "feedbackSurveyRate": 0,
   "spinnerTipsEnabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "awaySummaryEnabled": false,
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.81",
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "installedPluginVersions": {},
-  "ENABLE_LSP_TOOL": "1"
+  "preferredNotifChannel": "notifications_disabled",
+  "autoScrollEnabled": false,
+  "teammateMode": "auto",
+  "agentPushNotifEnabled": false,
+  "useAutoModeDuringPlan": true,
+  "autoCompactEnabled": false
 }

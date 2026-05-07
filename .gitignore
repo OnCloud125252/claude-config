@@ -162,3 +162,6 @@ node_modules
 /.recent_work_last_update
 /RECENT_WORK.md
 /security_warnings_state_*
+/mcp-needs-auth-cache.json
+/.last-cleanup
+/recent-work
