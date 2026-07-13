@@ -4,11 +4,11 @@
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/frontend-design/c80bd00bb0e7",
-        "version": "c80bd00bb0e7",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/frontend-design/1b48b27dc199",
+        "version": "1b48b27dc199",
         "installedAt": "2026-02-01T16:38:55.500Z",
-        "lastUpdated": "2026-04-20T17:26:52.432Z",
-        "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
+        "lastUpdated": "2026-07-10T12:34:42.265Z",
+        "gitCommitSha": "1b48b27dc1994ca2effe9534fc9788c6aba614b0"
       }
     ],
     "code-simplifier@claude-plugins-official": [
@@ -29,16 +29,6 @@
         "installedAt": "2026-02-01T16:41:40.464Z",
         "lastUpdated": "2026-03-30T14:38:55.563Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
-      }
-    ],
-    "typescript-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:41:23.156Z",
-        "lastUpdated": "2026-03-01T01:41:23.156Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
       }
     ],
     "claude-md-management@claude-plugins-official": [
@@ -64,101 +54,31 @@
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/code-review/c80bd00bb0e7",
-        "version": "c80bd00bb0e7",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/code-review/1b48b27dc199",
+        "version": "1b48b27dc199",
         "installedAt": "2026-02-01T16:43:53.020Z",
-        "lastUpdated": "2026-04-20T17:26:52.428Z",
-        "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
+        "lastUpdated": "2026-07-10T12:34:42.265Z",
+        "gitCommitSha": "1b48b27dc1994ca2effe9534fc9788c6aba614b0"
       }
     ],
     "security-guidance@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/security-guidance/c80bd00bb0e7",
-        "version": "c80bd00bb0e7",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/security-guidance/2.0.6",
+        "version": "2.0.6",
         "installedAt": "2026-02-20T15:40:45.253Z",
-        "lastUpdated": "2026-04-20T17:26:52.423Z",
-        "gitCommitSha": "8deab8460a9d4df5a01315ef722a5ca6b061c074"
-      }
-    ],
-    "pyright-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:41:16.059Z",
-        "lastUpdated": "2026-03-01T01:41:16.059Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
-      }
-    ],
-    "gopls-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:41:33.996Z",
-        "lastUpdated": "2026-03-01T01:41:33.996Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
-      }
-    ],
-    "rust-analyzer-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:41:40.385Z",
-        "lastUpdated": "2026-03-01T01:41:40.385Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
-      }
-    ],
-    "clangd-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:42:09.329Z",
-        "lastUpdated": "2026-03-01T01:42:09.329Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
-      }
-    ],
-    "php-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/php-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-03-01T01:42:18.059Z",
-        "lastUpdated": "2026-03-01T01:42:18.059Z",
-        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
-      }
-    ],
-    "notion-workspace-plugin@notion-plugin-marketplace": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/notion-plugin-marketplace/notion-workspace-plugin/0.1.0",
-        "version": "0.1.0",
-        "installedAt": "2026-03-17T07:21:29.788Z",
-        "lastUpdated": "2026-03-17T07:21:29.788Z",
-        "gitCommitSha": "9847f2aa1a15f25df35ed1fb7b4557dbb60cd651"
+        "lastUpdated": "2026-06-13T16:04:12.293Z",
+        "gitCommitSha": "042fa7c265b490c456ebf25ebe56dbd73a85f842"
       }
     ],
     "skill-creator@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/skill-creator/c80bd00bb0e7",
-        "version": "c80bd00bb0e7",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/skill-creator/1b48b27dc199",
+        "version": "1b48b27dc199",
         "installedAt": "2026-03-18T13:32:07.029Z",
-        "lastUpdated": "2026-04-20T17:26:52.436Z",
-        "gitCommitSha": "6b70f99f769f58b9b642dc8a271936b17862cf8c"
-      }
-    ],
-    "chrome-devtools-mcp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/chrome-devtools-mcp/0.22.0",
-        "version": "0.22.0",
-        "installedAt": "2026-03-18T13:34:43.872Z",
-        "lastUpdated": "2026-04-22T02:37:56.560Z",
-        "gitCommitSha": "c2d8009ff75f76bce1ec4cf79c2467b50d81725e"
+        "lastUpdated": "2026-07-10T12:34:42.264Z",
+        "gitCommitSha": "1b48b27dc1994ca2effe9534fc9788c6aba614b0"
       }
     ],
     "zeabur-rag@zeabur-rag": [
@@ -175,11 +95,61 @@
       {
         "scope": "project",
         "projectPath": "/Users/oncloud/Projects/Lazco-Studio/cloud",
-        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/linear/c80bd00bb0e7",
-        "version": "c80bd00bb0e7",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/linear/042fa7c265b4",
+        "version": "042fa7c265b4",
         "installedAt": "2026-04-17T15:07:29.811Z",
-        "lastUpdated": "2026-04-17T15:07:29.811Z",
+        "lastUpdated": "2026-05-08T16:06:49.748Z",
         "gitCommitSha": "c80bd00bb0e7b04f638f7b672b467e0161c65014"
+      }
+    ],
+    "understand-anything@understand-anything": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/understand-anything/understand-anything/2.8.1",
+        "version": "2.8.1",
+        "installedAt": "2026-06-23T07:31:20.347Z",
+        "lastUpdated": "2026-06-23T07:31:20.347Z",
+        "gitCommitSha": "7f5a717694d3a94f19f523b375c777eb21548ff5"
+      }
+    ],
+    "php-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/php-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-07T21:07:43.515Z",
+        "lastUpdated": "2026-07-07T21:07:43.515Z",
+        "gitCommitSha": "042fa7c265b490c456ebf25ebe56dbd73a85f842"
+      }
+    ],
+    "pyright-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-07T21:07:43.515Z",
+        "lastUpdated": "2026-07-07T21:07:43.515Z",
+        "gitCommitSha": "042fa7c265b490c456ebf25ebe56dbd73a85f842"
+      }
+    ],
+    "rust-analyzer-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-07T21:07:43.515Z",
+        "lastUpdated": "2026-07-07T21:07:43.515Z",
+        "gitCommitSha": "042fa7c265b490c456ebf25ebe56dbd73a85f842"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/oncloud/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-07T21:07:43.515Z",
+        "lastUpdated": "2026-07-07T21:07:43.515Z",
+        "gitCommitSha": "042fa7c265b490c456ebf25ebe56dbd73a85f842"
       }
     ]
   }

@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-05-07T07:06:39.160Z"
+    "lastUpdated": "2026-07-13T16:33:38.551Z"
   },
   "happy-claude-skills": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "iamzhihuix/happy-claude-skills"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/happy-claude-skills",
-    "lastUpdated": "2026-05-07T07:06:41.841Z",
+    "lastUpdated": "2026-07-13T16:33:37.969Z",
     "autoUpdate": true
   },
   "notion-plugin-marketplace": {
@@ -22,7 +22,7 @@
       "repo": "makenotion/claude-code-notion-plugin"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/notion-plugin-marketplace",
-    "lastUpdated": "2026-05-05T07:09:05.572Z"
+    "lastUpdated": "2026-05-28T07:05:18.627Z"
   },
   "zeabur-rag": {
     "source": {
@@ -30,6 +30,14 @@
       "repo": "zeabur/zeabur-rag"
     },
     "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/zeabur-rag",
-    "lastUpdated": "2026-05-05T07:09:13.003Z"
+    "lastUpdated": "2026-05-28T07:05:22.836Z"
+  },
+  "understand-anything": {
+    "source": {
+      "source": "github",
+      "repo": "Egonex-AI/Understand-Anything"
+    },
+    "installLocation": "/Users/oncloud/.claude/plugins/marketplaces/understand-anything",
+    "lastUpdated": "2026-06-23T07:31:04.250Z"
   }
 }

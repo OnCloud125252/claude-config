@@ -1,49 +1,40 @@
 {
-  "env": {
-    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
-    "CLAUDE_CODE_NEW_INIT": "1",
-    "DISABLE_INSTALLATION_CHECKS": "1",
-    "DISABLE_FEEDBACK_COMMAND": "1",
-    "ENABLE_LSP_TOOL": "1",
-    "RAG_API_KEY": "rak_ab4bff4993952c2a003aa6ec2a449f6a804184007562f0a1f26e48115fa7b4a3",
-    "ZEABUR_RAG_URL": "https://kb.zeabur.com",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "COORDINATOR_MODE": "1"
-  },
   "permissions": {
     "defaultMode": "default",
     "additionalDirectories": []
   },
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
+            "command": "if [ -n \"$PASEO_TERMINAL_ID\" ]; then \"${PASEO_HOOK_CLI:-paseo}\" hooks claude Notification; fi",
+            "timeout": 10
           }
         ]
       }
     ],
+    "PermissionRequest": [
+    ],
     "PostToolUse": [
       {
         "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/oncloud/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
-          }
-        ]
+        "hooks": []
       }
     ],
     "PreToolUse": [
       {
         "matcher": "*",
+        "hooks": []
+      },
+      {
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/oncloud/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
+            "command": "rtk hook claude"
           }
         ]
       }
@@ -57,19 +48,16 @@
             "command": "~/.claude/hooks/load-recent-work.sh",
             "timeout": 10,
             "statusMessage": "Loading recent work summary..."
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/suggest-worktree.sh",
+            "timeout": 5
           }
         ]
       }
     ],
     "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
-          }
-        ]
-      },
       {
         "hooks": [
           {
@@ -80,38 +68,90 @@
             "async": true
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -n \"$PASEO_TERMINAL_ID\" ]; then \"${PASEO_HOOK_CLI:-paseo}\" hooks claude Stop; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -n \"$PASEO_TERMINAL_ID\" ]; then \"${PASEO_HOOK_CLI:-paseo}\" hooks claude UserPromptSubmit; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -n \"$PASEO_TERMINAL_ID\" ]; then \"${PASEO_HOOK_CLI:-paseo}\" hooks claude StopFailure; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -n \"$PASEO_TERMINAL_ID\" ]; then \"${PASEO_HOOK_CLI:-paseo}\" hooks claude SessionEnd; fi",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
+  "worktree": {},
+  "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "~/.agents/claude-statusline/statusline.sh",
-    "padding": 0
+    "padding": 0,
+    "refreshInterval": 1000
   },
   "enabledPlugins": {
     "browser@happy-claude-skills": false,
-    "chrome-devtools-mcp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "notion-workspace-plugin@notion-plugin-marketplace": true,
     "php-lsp@claude-plugins-official": false,
-    "pyright-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": false,
     "ralph-loop@claude-plugins-official": false,
     "rust-analyzer-lsp@claude-plugins-official": false,
     "security-guidance@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "zeabur-rag@zeabur-rag": true
+    "understand-anything@understand-anything": true,
+    "zeabur-rag@zeabur-rag": false,
+    "typescript-lsp@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "notion-plugin-marketplace": {
       "source": {
         "source": "github",
         "repo": "makenotion/claude-code-notion-plugin"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Egonex-AI/Understand-Anything"
       }
     },
     "zeabur-rag": {
@@ -126,20 +166,27 @@
   "feedbackSurveyRate": 0,
   "spinnerTipsEnabled": false,
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "awaySummaryEnabled": false,
+  "effortLevel": "xhigh",
   "autoUpdatesChannel": "stable",
-  "minimumVersion": "2.1.81",
   "voice": {
     "enabled": false,
     "mode": "hold"
   },
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "editorMode": "normal",
   "preferredNotifChannel": "notifications_disabled",
-  "autoScrollEnabled": false,
-  "teammateMode": "auto",
+  "autoCompactEnabled": false,
+  "autoScrollEnabled": true,
+  "teammateMode": "tmux",
+  "remoteControlAtStartup": false,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": false,
   "useAutoModeDuringPlan": true,
-  "autoCompactEnabled": false
+  "trustedDirectories": [
+    "/Users/oncloud/Projects",
+    "/Users/oncloud/Projects/OnCloud/LLM-Chats/**"
+  ]
 }
